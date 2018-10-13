@@ -151,6 +151,10 @@ class AUC_Car < AUC
         @car_data['registration']['registration']
     end
 
+    def vin
+        @car_data['identification']['vin']
+    end
+
     def cash_price
         @car_data['cash_price']['value']
     end
@@ -255,7 +259,7 @@ get '/' do
     output.push("Competition pack cars:<br><br>")
     results.cars.each do |car|
         if car.competition_pack?
-            output.push("id: #{car.advert_id} reg:#{car.registration} £:#{car.cash_price} miles:#{car.mileage} miles/£:#{car.mileage.to_f/car.cash_price}<br>")
+            output.push("id: #{car.advert_id} reg:#{car.registration} £:#{car.cash_price} miles:#{car.mileage} vin:#{car.vin} miles/£:#{car.mileage.to_f/car.cash_price}<br>")
         end
     end
 
