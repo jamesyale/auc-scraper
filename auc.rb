@@ -185,7 +185,7 @@ class AUC_Car < AUC
     end
 
     def other
-        features['other']['additional'] || []
+        features['other'] && features['other']['additional'] || []
     end
 
     def save!
